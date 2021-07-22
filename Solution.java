@@ -65,11 +65,11 @@ public class Solution {
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
 
-            if (current.branch[ch - 'a'] == null) {
+            if (current.branches[ch - 'a'] == null) {
                 break;
             }
 
-            current = current.branch[ch - 'a'];
+            current = current.branches[ch - 'a'];
             if (current.isEndOfWord && visited_startIndexes.add(inputStringLength - word.length() + i + 1)) {
 
                 queue_startIndexes.add(inputStringLength - word.length() + i + 1);
@@ -94,10 +94,10 @@ public class Solution {
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
 
-            if (current.branch[ch - 'a'] == null) {
-                current.branch[ch - 'a'] = new TrieNode();
+            if (current.branches[ch - 'a'] == null) {
+                current.branches[ch - 'a'] = new TrieNode();
             }
-            current = current.branch[ch - 'a'];
+            current = current.branches[ch - 'a'];
             if (i == word.length() - 1) {
                 current.isEndOfWord = true;
             }
@@ -109,10 +109,10 @@ public class Solution {
 class TrieNode {
 
     boolean isEndOfWord;
-    TrieNode[] branch;
+    TrieNode[] branches;
     final int CHARS_IN_ALPHABET = 26;
 
     public TrieNode() {
-        branch = new TrieNode[CHARS_IN_ALPHABET];
+        branches = new TrieNode[CHARS_IN_ALPHABET];
     }
 }

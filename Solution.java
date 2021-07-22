@@ -28,6 +28,7 @@ public class Solution {
         the letter "y", twice. With large input, the time complexity will be prohibitive 
         and at some point will exceed the time limits.
      */
+    
     LinkedList<Integer> queue_startIndexes;// start indexes for the substring to be searched.
     Set<Integer> visited_startIndexes;
     int inputStringLength;
